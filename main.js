@@ -71,14 +71,6 @@ function initSlider(options) {
     });
   }
 
-  function cropTitle(title, size) {
-    if (title.length <= size) {
-      return title;
-    } else {
-      return title.substr(0, size) + "...";
-    }
-  }
-
   function initArrows() {
     sliderArrows.querySelectorAll(".slider__arrow").forEach((arrow) => {
       arrow.addEventListener("click", function () {
@@ -100,15 +92,25 @@ function initSlider(options) {
       let dot = `<div class="slider__dots-item n${index} ${
         index === 0 ? "active" : ""
       }" data-index="${index}"></div>`;
-
       sliderDots.innerHTML += dot;
     });
-
     sliderDots.querySelectorAll(".slider__dots-item").forEach((dot) => {
       dot.addEventListener("click", function () {
         moveSlider(this.dataset.index);
       });
     });
+  }
+
+  function moveSlider(num) {
+    sliderImages.querySelector(".active").classList.remove("active");
+    sliderImages.querySelector(".n" + num).classList.add("active");
+    if (options.dots) {
+      sliderDots.querySelector(".active").classList.remove("active");
+      sliderDots.querySelector(".n" + num).classList.add("active");
+    }
+    if (options.title) {
+      changeTitle(num);
+    }
   }
 
   function initTitle() {
@@ -117,28 +119,25 @@ function initSlider(options) {
   }
 
   function changeTitle(num) {
-    if (images[num].title) return;
+    if (!images[num].title) return;
     let sliderTitle = sliderImages.querySelector(".slider__images-title");
     sliderTitle.innerText = cropTitle(images[num].title, 50);
   }
 
+  function cropTitle(title, size) {
+    if (title.length <= size) {
+      return title;
+    } else {
+      return title.substr(0, size) + "...";
+    }
+  }
+
   function initAuto() {
-    setInterval(() => {
+    const ID = setInterval(() => {
       let curNumber = +sliderImages.querySelector(".active").dataset.index;
       let nextNumber = curNumber === images.length - 1 ? 0 : curNumber + 1;
       moveSlider(nextNumber);
     }, options.interval);
-  }
-
-  
-  function moveSlider(num) {
-    sliderImages.querySelector(".active").classList.remove("active");
-    sliderImages.querySelector(".n" + num).classList.add("active");
-    if (options.dots) {
-      sliderDots.querySelector(".active").classList.remove("active");
-      sliderDots.querySelector(".n" + num).classList.add("active");
-    }
-    if (options.title) changeTitle(num);
   }
 }
 

@@ -1,37 +1,4 @@
-let images = [
-  {
-    url: "https://s1.1zoom.ru/big0/94/345461-admin.jpg",
-    title: "картинка 1 vsvfdbfv werfgersvrfv wefrervsergsvf erferfvaervervear",
-  },
-  {
-    url: "https://i.pinimg.com/originals/02/c4/82/02c482063823ce8bb75bc7a73541a1c6.jpg",
-    title: "картинка 2",
-  },
-  {
-    url: "https://i02.fotocdn.net/s109/edbe5e8e7ccb11e9/public_pin_l/2410262715.jpg",
-    title: "картинка 3",
-  },
-  {
-    url: "https://oakmandesigns.files.wordpress.com/2012/07/ferrari-599xx-067.jpg",
-    title: "картинка 4",
-  },
-  {
-    url: "https://get.wallhere.com/photo/sports-sunset-night-car-vehicle-Lamborghini-Porsche-California-panorama-Nikon-sports-car-Ferrari-Convertible-F430-performance-car-Nevada-italian-Ferrari-California-exotic-shot-light-flickr-Italia-Motion-wheel-cars-trails-V8-automobile-supercar-d3000-nightshot-458-worldcars-motorsport-land-vehicle-automotive-design-race-car-luxury-vehicle-ferrari-599-gtb-fiorano-folk-photography-reno-automotive-wheel-system-sports-car-racing-870531.jpg",
-    title: "картинка 5",
-  },
-  {
-    url: "https://www.premiumfelgi.com/modGalerie/en_GB/2009/4Gallery/2009_Wheels-Ferrari-812-Superfast.jpg",
-    title: "картинка 6",
-  },
-  {
-    url: "https://s1.1zoom.ru/big0/56/224235-burbon.jpg",
-    title: "картинка 7",
-  },
-  {
-    url: "https://sun9-28.userapi.com/c844521/v844521539/19df4c/3WJOoEAyp4A.jpg",
-    title: "картинка 8",
-  },
-];
+
 
 function initSlider(options) {
   if (!images || !images.length) return;
